@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enum\StudentType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Student\StoreStudentRequest;
 use App\Http\Requests\Student\UpdateStudentRequest;
@@ -9,19 +10,39 @@ use App\Models\Course;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use Illuminate\Database\Eloquent\Builder;
 class StudentController extends Controller
 {
     public function index()
     {
-        $students = Student::orderBy('position','asc')->paginate(10);
+        $students = Student::with(['course'])
+            ->where(function (Builder $q) {
+                if (!is_null(request('search'))) {
+                    $q->whereLike(['registration_no', 'full_name', 'course.course_name'],request('search'));
+                }
+            })
+            ->orderBy('position','asc')->paginate(10);
+
         return view('admin.student.index', compact('students'));
+    }
+    public function student(StudentType $studentType)
+    {
+        $students = Student::with(['course'])
+            ->where(function (Builder $q) {
+                if (!is_null(request('search'))) {
+                    $q->whereLike(['registration_no', 'full_name', 'course.course_name'],request('search'));
+                }
+            })
+            ->orderBy('position','asc')->paginate(10);
+
+        return view('admin.student.student', compact('students','studentType'));
     }
 
     public function create()
     {
+        $students = Student::all();
         $courses = Course::all();
-        return view('admin.student.create',compact('courses'));
+        return view('admin.student.create',compact('courses','students'));
     }
 
     public function store(StoreStudentRequest $request)
@@ -49,10 +70,32 @@ class StudentController extends Controller
         return redirect(route('admin.student.index'));
     }
 
+    public function updateStatus(Student $student)
+    {
+        $student->update([
+            'status' => !$student->status
+        ]);
+        toast('Status updated successfully', 'success');
+        return back();
+    }
+    public function updateStudentType(Student $student)
+    {
+        if($student->student_type->label() == "Enquiry")
+        $student->update([
+            'student_type' => "Admission"
+        ]);
+        else{
+            $student->update([
+                'student_type' => "Enquiry"
+            ]);
+        }
+        toast('Status updated successfully', 'success');
+        return back();
+    }
     public function destroy(Student $student)
     {
         $student->delete();
-        Alert::success('Student deleted successfully');
+        Alert::success('student deleted successfully');
         return back();
     }
 }

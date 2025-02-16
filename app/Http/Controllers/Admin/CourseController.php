@@ -48,4 +48,13 @@ class CourseController extends Controller
         Alert::success('Course deleted successfully');
         return back();
     }
+
+    public function updateStatus(Course $course)
+    {
+        $course->update([
+            'status' => !$course->status
+        ]);
+        toast('Status updated successfully', 'success');
+        return back();
+    }
 }

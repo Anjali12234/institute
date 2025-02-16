@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use App\Enum\CourseType;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 
-class   Course extends Model
+class Course extends Model
 {
     use HasFactory, SoftDeletes, Sluggable, Notifiable;
 
@@ -20,14 +22,15 @@ class   Course extends Model
         'end_date',
         'slug',
         'position',
+        'fee',
+        'course_type',
         'status',
+        'required_documents',
     ];
-    protected $hidden = [
-        'password',
-        'remember_token'
-    ];
+   
+  
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'course_type' => CourseType::class,
     ];
 
   
@@ -48,9 +51,14 @@ class   Course extends Model
             $course->position = static::max('position') + 1;
         });
     }
-    public function student(): BelongsTo
+    public function student(): HasMany
     {
-        return $this->belongsTo(Student::class);
+        return $this->hasMany(Student::class);
+    }
+
+    public function requiredDocuments()
+    {
+        return $this->hasMany(RequiredDocument::class);
     }
    
 }

@@ -18,8 +18,11 @@ return new class extends Migration
             $table->string('start_date')->nullable();
             $table->string('end_date')->nullable();
             $table->string('slug')->nullable();
+            $table->string('fee')->nullable();
             $table->string('position')->nullable();
-            $table->string('status')->nullable();
+            $table->boolean('status')->nullable()->default(0);
+            $table->string('required_documents')->nullable();
+            $table->string('course_type')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

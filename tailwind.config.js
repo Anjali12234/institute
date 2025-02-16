@@ -18,6 +18,9 @@ export default {
                 slabo:['Slabo ','sens-serif'],
                 lora:['Lora','serif']
             },
+            spacing: {
+                header: '4rem', // Define a valid value for header spacing
+              },
         },
     },
 

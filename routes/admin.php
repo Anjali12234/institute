@@ -21,16 +21,12 @@ Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->name('dashboard');
 Route::resource('systemSetting', SystemSettingController::class);
-Route::resource('slider', SliderController::class);
-Route::resource('about', AboutController::class);
-Route::resource('gallery', GalleryController::class);
-Route::resource('generalQuestion', GeneralQuestionController::class);
-Route::resource('contact', ContactController::class);
-Route::resource('notice', NoticeController::class);
-Route::resource('team', TeamController::class);
 Route::resource('course', CourseController::class);
-Route::resource('student', StudentController::class);
-Route::put('notice/{notice}/updateStatus', [NoticeController::class, 'updateStatus'])->name('notice.updateStatus');
+Route::put('course/{course}/updateStatus', [CourseController::class, 'updateStatus'])->name('course.updateStatus');
+Route::resource('student', StudentController::class)->except(  'show');
+Route::get('student/{studentType}', [StudentController::class, 'student'])->name('student');
+Route::put('student/{student}/updateStatus', [StudentController::class, 'updateStatus'])->name('student.updateStatus');
+Route::put('student/{student}/updateStudentType', [StudentController::class, 'updateStudentType'])->name('student.updateStudentType');
 
 Route::prefix('serivces')->group(function () {
     Route::resource('service', ServiceController::class);

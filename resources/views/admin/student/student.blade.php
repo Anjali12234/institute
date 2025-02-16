@@ -4,15 +4,17 @@
         class="group-data-[sidebar-size=lg]:ltr:md:ml-vertical-menu group-data-[sidebar-size=lg]:rtl:md:mr-vertical-menu group-data-[sidebar-size=md]:ltr:ml-vertical-menu-md group-data-[sidebar-size=md]:rtl:mr-vertical-menu-md group-data-[sidebar-size=sm]:ltr:ml-vertical-menu-sm group-data-[sidebar-size=sm]:rtl:mr-vertical-menu-sm pt-[calc(theme('spacing.header')_*_1)] pb-[calc(theme('spacing.header')_*_0.8)] px-4 group-data-[navbar=bordered]:pt-[calc(theme('spacing.header')_*_1.3)] group-data-[navbar=hidden]:pt-0 group-data-[layout=horizontal]:mx-auto group-data-[layout=horizontal]:max-w-screen-2xl group-data-[layout=horizontal]:px-0 group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:ltr:md:ml-auto group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:rtl:md:mr-auto group-data-[layout=horizontal]:md:pt-[calc(theme('spacing.header')_*_1.6)] group-data-[layout=horizontal]:px-3 group-data-[layout=horizontal]:group-data-[navbar=hidden]:pt-[calc(theme('spacing.header')_*_0.9)]">
         <div class="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
 
-            <x-breadcumb : list="All Student" />
+            <x-breadcumb : list="{{ $studentType }} Student" />
 
-            <x-addbutton : list="Add Student" route="{{ route('admin.student.create') }}"
-                class="bg-custom-500 border-custom-500 hover:bg-custom-600 hover:border-custom-600 focus:bg-custom-600 focus:border-custom-600 focus:ring-custom-100
-  active:ring-custom-100 dark:ring-custom-400/20"
-                show="yes" />
+
 
             <div class="card" id="customerList">
                 <div class="card-body">
+                    <x-addbutton : list="Add Student" route="{{ route('admin.student.create') }}"
+                        class="bg-custom-500 border-custom-500 hover:bg-custom-600 hover:border-custom-600 focus:bg-custom-600 focus:border-custom-600 focus:ring-custom-100
+              active:ring-custom-100 dark:ring-custom-400/20"
+                        show="yes" />
+
                     <div class="overflow-x-auto">
                         <table class="w-full whitespace-nowrap">
                             <thead
@@ -53,15 +55,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-
-                                <x-student :students="$students" />
-
+                              
+                                    <x-student :students="$students->where('student_type', $studentType)"  />
+                              
 
 
 
                             </tbody>
                         </table>
-                        {{ $students->links() }}
+
                     </div>
 
 

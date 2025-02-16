@@ -11,21 +11,21 @@
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesdesign" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ systemSetting()?->logo2 }}">
     <!-- Layout config Js -->
     <script src="{{ asset('assets/js/layout.js') }}"></script>
     <!-- Icons CSS -->
 
     <!-- Tailwind CSS -->
-
-
+    @livewireStyles
+    @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('assets/css/tailwind2.css') }}">
 </head>
 
 <body
     class="text-base bg-body-bg text-body font-public dark:text-zink-100 dark:bg-zink-800 group-data-[skin=bordered]:bg-body-bordered group-data-[skin=bordered]:dark:bg-zink-700">
     <div class="group-data-[sidebar-size=sm]:min-h-sm group-data-[sidebar-size=sm]:relative">
-
+        @include('sweetalert::alert')
 
         @include('backend.partials.sidebar')
         <!-- Left Sidebar End -->
@@ -42,6 +42,7 @@
         </div>
 
     </div>
+    @livewireScripts
     <!-- end main content -->
 @include('backend.partials.right-sidebar')
     

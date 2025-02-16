@@ -11,14 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'index')->name('welcome');
-    Route::get('aboutus', 'aboutUs')->name('aboutus');
-    Route::get('services', 'service')->name('service');
-    Route::get('service/{service:slug}','serviceDetail')->name('serviceDetail');
-    Route::get('teams', 'team')->name('team');
-    Route::get('team/{team:slug}','teamDetail')->name('teamDetail');
-    Route::get('contact', 'contact')->name('contact');
-    Route::get('certificate','certificatePage')->name('certificatePage');
-    Route::post('certificateGenerate','certificateGenerate')->name('certificateGenerate');
+    
 
 });
 

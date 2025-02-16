@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AuthSeeder::class,
+            AddressSeeder::class,
         ]);
     }
 }

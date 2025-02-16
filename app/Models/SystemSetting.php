@@ -12,8 +12,7 @@ class SystemSetting extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'logo1',
-        
+        'logo1',        
         'name',
         'address',
         'phone_number',

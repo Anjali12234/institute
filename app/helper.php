@@ -1,7 +1,10 @@
 <?php
 
+use App\Models\District;
 use App\Models\Gallery;
+use App\Models\LocalBody;
 use App\Models\Programme;
+use App\Models\Province;
 use App\Models\Student;
 use App\Models\SystemSetting;
 use App\Models\Teacher;
@@ -26,15 +29,22 @@ if (!function_exists('student')) {
     }
 }
 
-if (!function_exists('galleries')) {
-    function galleries()
+if (!function_exists('provinces')) {
+    function provinces()
     {
-        return Gallery::with('files')->get();
+        return Province::all();
     }
 }
-if (!function_exists('teachers')) {
-    function teachers()
+if (!function_exists('districts')) {
+    function districts()
     {
-        return Teacher::all();
+        return District::all();
     }
 }
+if (!function_exists('localBodies')) {
+    function localBodies()
+    {
+        return LocalBody::all();
+    }
+}
+

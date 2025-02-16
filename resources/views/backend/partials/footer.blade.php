@@ -7,11 +7,11 @@ class="ltr:md:left-vertical-menu rtl:md:right-vertical-menu group-data-[sidebar-
         <div>
             <script>
                 document.write(new Date().getFullYear())
-            </script> © Tailwick.
+            </script> © {{systemSetting()?->name}}.
         </div>
         <div class="hidden lg:block">
             <div class="ltr:text-right rtl:text-left">
-                Design & Develop by Themesdesign
+                Design & Develop by Brilliant IT Solution
             </div>
         </div>
     </div>
