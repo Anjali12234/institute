@@ -28,7 +28,4 @@ Route::get('student/{studentType}', [StudentController::class, 'student'])->name
 Route::put('student/{student}/updateStatus', [StudentController::class, 'updateStatus'])->name('student.updateStatus');
 Route::put('student/{student}/updateStudentType', [StudentController::class, 'updateStudentType'])->name('student.updateStudentType');
 
-Route::prefix('serivces')->group(function () {
-    Route::resource('service', ServiceController::class);
-    
-});
+

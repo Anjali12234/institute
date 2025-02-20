@@ -23,7 +23,7 @@ class StoreCourseRequest extends FormRequest
             'fee' => ['required',  'numeric'],
             'start_date' => ['required', 'date', 'date_format:Y-m-d'],
             'end_date' => ['required', 'date', 'date_format:Y-m-d', 'after:start_date'],
-            'required_documents' => ['required', 'string'],
+            // 'required_documents' => ['required', 'string'],
             'course_type' => ['required', new Enum(CourseType::class)],
         ];
     }

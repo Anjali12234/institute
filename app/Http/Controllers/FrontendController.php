@@ -23,13 +23,8 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        session()->flash('showPopup', true);
-        $galleries = Gallery::latest()->limit(6)->get();
-        $about = About::latest()->first();
-        $sliders = Slider::all();
-        $services = Service::orderBy('position')->limit(6)->get();
-        $teams = Team::orderBy('position')->get();
-        return view('frontend.index', compact('sliders', 'about', 'galleries', 'services', 'teams'));
+       
+        return view('frontend.index');
     }
     public function aboutUs()
     {

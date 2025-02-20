@@ -57,7 +57,7 @@ class CourseLivewire extends Component
             'fee' => 'required|numeric',
             'start_date' => 'required|date|date_format:Y-m-d',
             'end_date' => 'required|date|date_format:Y-m-d',
-            'course_type' => 'required',
+            'course_type' => 'nullable',
             'requiredDocuments.*.document_title' => 'nullable|string|max:255',
             
         ]);

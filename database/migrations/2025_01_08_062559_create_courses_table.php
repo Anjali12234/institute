@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('fee')->nullable();
             $table->string('position')->nullable();
             $table->boolean('status')->nullable()->default(0);
-            $table->string('required_documents')->nullable();
             $table->string('course_type')->nullable();
             $table->softDeletes();
             $table->timestamps();

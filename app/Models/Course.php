@@ -25,7 +25,6 @@ class Course extends Model
         'fee',
         'course_type',
         'status',
-        'required_documents',
     ];
    
   
