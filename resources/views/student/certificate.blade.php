@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-<x-frontend.breadcumb image="{{ asset('assets/frontend/img/breadcumb/breadcumb-bg.jpg') }}" heading="Certificate" />
+<x-breadcumb image="{{ asset('assets/frontend/img/breadcumb/breadcumb-bg.jpg') }}" heading="Certificate" />
 <style>
     #printable-area {
         font-family: 'Arial', sans-serif;

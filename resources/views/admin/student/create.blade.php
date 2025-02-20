@@ -18,12 +18,13 @@
                         <h6 class="mb-4 text-15">Personal Information</h6>
 
                         <div class="grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-3">
+                            <livewire:student-form />
                             <x-input-label : id="image" value="{{ old('image') }}" title="Image"
-                                spanClass="text-red-500" type="file" />
+                                spanClass="text-red-500" type="file" name="image" />
                             <x-input-label : id="full_name" value="{{ old('full_name') }}" title="Name"
-                                spanClass="text-red-500" type="text" />
+                                spanClass="text-red-500" type="text" name="full_name" />
                             <x-input-label : id="email" value="{{ old('email') }}" title="Email"
-                                spanClass="text-red-500" type="email" />
+                                spanClass="text-red-500" type="email" name="email" />
 
 
 
@@ -32,7 +33,7 @@
                             {{-- <x-input-label : id="admission_date" value="{{ old('admission_date') }}"
                                 spanClass="text-red-500" title="Admission Date" type="date" /> --}}
                             <x-input-label : id="phone_number" value="{{ old('phone_number') }}" title="Phone Number"
-                                spanClass="text-red-500" type="number" />
+                                spanClass="text-red-500" type="number" name="phone_number" />
 
                         </div>
                         <h6 class="mb-4 text-15">Address</h6>
@@ -40,15 +41,15 @@
                         <livewire:dependent-dropdown />
                         <div class="grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-3">
                             <x-input-label : id="tole" value="{{ old('tole') }}" title="Tole"
-                                spanClass="text-red-500" type="text" />
+                                spanClass="text-red-500" type="text" name="tole" />
                             <x-select id="reference_by" value="{{ old('reference_by') }}" title="Refrence By"
-                                spanClass="text-white" selected="old('reference_by')" :students="$students" />
+                                spanClass="text-white" selected="old('reference_by')" :students="$students" name="reference_by" />
                             <x-select id="gender" value="{{ old('gender') }}" title="Gender" spanClass="text-white"
-                                selected="old('gender')" :list="\App\Enum\Gender::cases()" />
-                            <x-select id="student_type" value="{{ old('student_type') }}" title="Student Type"
-                                spanClass="text-white" selected="old('student_type')" :list="\App\Enum\StudentType::cases()" />
+                                selected="old('gender')" :list="\App\Enum\Gender::cases()" name="gender" />
+                            {{-- <x-select id="student_type" value="{{ old('student_type') }}" title="Student Type"
+                                spanClass="text-white" selected="old('student_type')" :list="\App\Enum\StudentType::cases()" name="student_type" /> --}}
                             <x-select id="course_id" value="{{ old('course_id') }}" title="Course" spanClass="text-white"
-                                selected="old('course_id')" :courses="$courses" />
+                                selected="old('course_id')" :courses="$courses" name="course_id" />
 
 
                         </div>
@@ -56,14 +57,15 @@
                             <label for="how_do_you_know" class="inline-block mb-2 text-base font-medium">
                                 How do you know <span class="text-white">*</span>
                             </label>
-                            <textarea name="how_do_you_know" id="editor" cols="50" rows="10">{{ old('how_do_you_know') }}</textarea>
+                            <textarea name="how_do_you_know" id="editor" name="how_do_you_know" cols="50" rows="10">{{ old('how_do_you_know') }}</textarea>
                             <span class="text-warning">
                                 @error('how_do_you_know')
                                     {{ $message }}
                                 @enderror
                             </span>
                         </div>
-                        <div class="flex justify-end gap-2">
+
+                        <div class="flex justify-end gap-2 mt-3">
                             <button type="submit"
                                 class="text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100">Submit</button>
                         </div>

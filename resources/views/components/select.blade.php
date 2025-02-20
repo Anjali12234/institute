@@ -13,7 +13,7 @@
         dark:focus:border-custom-800 placeholder:text-slate-400
         dark:placeholder:text-zinc-200" 
         id="{{ $id }}" 
-        name="{{ $name }}" wire:model=''>
+        name="{{ $name }}" wire:model={{ $wire }}>
         <option selected disabled value="">Choose...</option>
         @foreach ($list as $label)
             <option value="{{ $label->value }}" 

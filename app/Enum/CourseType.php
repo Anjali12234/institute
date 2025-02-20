@@ -4,8 +4,8 @@ namespace App\Enum;
 
 enum CourseType : string
 {
-    case Basic = 'Basic';
     case Diploma = 'Diploma';
+    case Basic = 'Basic';
     
     public function label(): string
     {
@@ -15,8 +15,8 @@ enum CourseType : string
     public static function getLabel(self $value): string
     {
         return match ($value) {
-            self::Basic => 'Basic',
             self::Diploma => 'Diploma',
+            self::Basic => 'Basic',
             
           
         };
