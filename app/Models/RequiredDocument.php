@@ -12,37 +12,37 @@ use Illuminate\Support\Facades\Storage;
 class RequiredDocument extends Model
 {
 
-    use HasFactory, SoftDeletes, Sluggable;
+    use HasFactory, SoftDeletes;
+
     protected $fillable = [
-        'title',
-        'file',
-        'slug',
-        'position',
-        'status',
+        'course_id',
+        'document_title',
+        'document',
+        'student_id',
+       
     ];
 
-    protected function file(): Attribute
-    {
-        return Attribute::make(
-            get: fn(?string $value) => $value ? Storage::disk('public')->url($value) : null,
-            set: fn($value) => $value ? $value->store('requiredDocument', 'public') : null,
-        );
-    }
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
-    }
-    protected static function boot()
-    {
-        parent::boot();
+    
 
-        static::creating(function ($requiredDocument) {
-            $requiredDocument->position = static::max('position') + 1;
+    public function setDocumentAttribute($value)
+    {
+        if (!empty($value) && !is_string($value)) {
+            $this->attributes['document'] = $value->store('student/requiedDocument', 'public');
+        }
+    }
 
-        });
+    public function getDocumentUrlAttribute()
+    {
+        return $this->attributes['document'] ? Storage::disk('public')->url($this->attributes['document']) : '';
+    }
+
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
     }
 }

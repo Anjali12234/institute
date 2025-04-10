@@ -13,27 +13,31 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
+            $table->string('first_name');
+            $table->string('middle_name')->nullable();
+            $table->string('last_name');
+            $table->string('how_know');
             $table->string('gender');
             $table->string('d_o_b')->nullable();
-            $table->string('faculty_name');
+            $table->string('qualification');
             $table->string('phone_number')->nullable();
             $table->string('address')->nullable();
             $table->string('registration_no')->nullable();
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->string('image')->nullable();
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable(); 
             $table->string('parent_name')->nullable();
             $table->string('parent_contact_number')->nullable();
+            $table->string('guardian_name')->nullable();
+            $table->string('guardian_contact_number')->nullable();
             $table->string('province_id')->nullable();
             $table->string('district_id')->nullable();
             $table->string('local_body_id')->nullable();
             $table->string('ward_no')->nullable();
             $table->string('tole');
             $table->string('admission_date')->nullable();
-            $table->string('how_do_you_know');
-            $table->string('reference_by')->nullable();
+            $table->string('student_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('course_id')->nullable()->constrained()->onDelete('cascade');
             $table->longText('remarks')->nullable();          
             $table->boolean('status')->default(true);

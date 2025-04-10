@@ -6,7 +6,6 @@ enum StudentType : string
 {
     case Enquiry = 'Enquiry';
     case Admission = 'Admission';
-    case All = 'All';
     
     public function label(): string
     {
@@ -18,7 +17,6 @@ enum StudentType : string
         return match ($value) {
             self::Enquiry => 'Enquiry',
             self::Admission => 'Admission',
-            self::All => 'All',
             
           
         };

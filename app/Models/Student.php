@@ -2,21 +2,28 @@
 
 namespace App\Models;
 
+use App\Enums\StudentType;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class Student extends Model
 {
     use HasFactory, SoftDeletes, Sluggable, Notifiable;
 
     protected $fillable = [
-        'full_name',
+        'first_name',
+        'middle_name',
+        'last_name',
         'gender',
         'd_o_b',
-        'faculty_name',
+        'qualification',
         'phone_number',
         'address',
         'registration_no',
@@ -25,14 +32,16 @@ class Student extends Model
         'email',
         'parent_name',
         'parent_contact_number',
+        'guardian_name',
+        'guardian_contact_number',
         'province_id',
         'district_id',
         'local_body_id',
         'ward_no',
         'tole',
         'admission_date',
-        'how_do_you_know',
-        'reference_by',
+        'student_id',
+        'how_know',
         'course_id',
         'remarks',
         'status',
@@ -68,7 +77,7 @@ class Student extends Model
     {
         return [
             'slug' => [
-                'source' => 'full_name'
+                'source' => 'first_name'
             ]
         ];
     }
@@ -84,6 +93,10 @@ class Student extends Model
     public function course():BelongsTo
     {
         return $this->belongsTo(Course::class);
+    }
+    public function students(): HasMany
+    {
+        return $this->hasMany(Student::class);
     }
   
     public function student()
