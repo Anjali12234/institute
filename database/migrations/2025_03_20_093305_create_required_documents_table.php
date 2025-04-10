@@ -15,9 +15,6 @@ return new class extends Migration
             $table->string('document_title')->nullable();
             $table->string('document')->nullable();
             $table->foreignId('student_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->boolean('status')->default(true);
-            $table->string('position');
-            $table->string('slug')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

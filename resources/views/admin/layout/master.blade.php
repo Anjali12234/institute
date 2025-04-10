@@ -58,7 +58,8 @@
             <i data-lucide="settings" class="inline-block w-5 h-5"></i>
         </button>
     </div>
-
+    @livewireScripts
+    @stack('script')
     @include('admin.layout.right-sidebar')
     <script src='{{ asset('assets/libs/choices.js/public/assets/scripts/choices.min.js') }}'></script>
     <script src="{{ asset('assets/libs/%40popperjs/core/umd/popper.min.js') }}"></script>

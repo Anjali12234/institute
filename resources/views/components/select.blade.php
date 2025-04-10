@@ -16,12 +16,12 @@
         name="{{ $name }}" wire:model={{ $wire }}>
         <option selected disabled value="">Choose...</option>
         @foreach ($list as $label)
-            <option value="{{ $label->value }}" 
-                {{ $selected == $label->value ? 'selected' : '' }}>
-                {{ $label->label() }}
-            </option>
-        @endforeach
-        @foreach ($courses as $course)
+        <option value="{{ $label->value }}" 
+            {{ (string) $selected === $label->value ? 'selected' : '' }}>
+            {{ $label->label() }}
+        </option>
+    @endforeach
+        @foreach ($courses as $course)  
             <option value="{{ $course->id }}" 
                 {{ $selected == $course->id ? 'selected' : '' }}>
                 {{ $course->course_name }}
@@ -30,7 +30,7 @@
         @foreach ($students as $student)
             <option value="{{ $student->id }}" 
                 {{ $selected == $student->id ? 'selected' : '' }}>
-                {{ $student->full_name }}
+                {{ $student->first_name }}{{$student->midle_name}}{{$student->last_name}}
             </option>
         @endforeach
     </select>
