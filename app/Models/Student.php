@@ -18,9 +18,7 @@ class Student extends Model
     use HasFactory, SoftDeletes, Sluggable, Notifiable;
 
     protected $fillable = [
-        'first_name',
-        'middle_name',
-        'last_name',
+        'full_name',
         'gender',
         'd_o_b',
         'qualification',
@@ -77,7 +75,7 @@ class Student extends Model
     {
         return [
             'slug' => [
-                'source' => 'first_name'
+                'source' => 'full_name'
             ]
         ];
     }

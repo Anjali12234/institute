@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\RequiredDocumentController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\SystemSettingController;
@@ -25,7 +26,7 @@ Route::prefix('student')->as('student.')->controller(StudentController::class)->
     Route::put('updateStatus/{student}',  'updateStatus')->name('updateStatus');
     Route::put('updateStudentType/{student}', 'updateStudentType')->name('updateStudentType');
     Route::delete('destroy/{student}', 'destroy')->name('destroy');
-
+Route::resource('report',ReportController::class);
 });
 
 

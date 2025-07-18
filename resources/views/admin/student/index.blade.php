@@ -83,7 +83,7 @@
                                         </td>
                                         <td
                                             class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            {{ $student->first_name }}{{ $student->middle_name }}{{ $student->last_name }}
+                                            {{ $student->full_name }}{{ $student->middle_name }}{{ $student->last_name }}
                                         </td>
                                         <td
                                             class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">

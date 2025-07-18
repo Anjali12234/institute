@@ -19,11 +19,9 @@ class StoreStudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'first_name' => ['required', 'string', 'max:255'],
-            'middle_name' => ['nullable', 'string', 'max:255'],
-            'gender' => ['required', new Enum(Gender::class)],
-            'last_name' => ['required', 'string', 'max:255'],
-            'how_know' => ['required', 'string', 'max:255'],
+            'full_name' => ['required', 'string', 'max:255'],
+           'gender' => ['required', new Enum(Gender::class)],
+             'how_know' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('students', 'email')], // Required, valid email, unique
             'd_o_b' => ['required', 'date'],
             'qualification' => ['required', 'string', 'max:255'],

@@ -19,15 +19,12 @@
                         <h6 class="mb-4 text-15">Personal Information</h6>
 
                         <div class="grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-3">
-<img src="{{$student->image}}" height="100" width="100" alt="{{$student->first_name}}">
+<img src="{{$student->image}}" height="100" width="100" alt="{{$student->full_name}}">
                             <x-input-label : id="image" value="{{ old('image') }}" title="Image"
                                 spanClass="text-red-500" type="file" name="image" />
-                            <x-input-label : id="first_name" value="{{ old('first_name',$student->first_name) }}" title=" First Name"
-                                spanClass="text-red-500" type="text" name="first_name" />
-                            <x-input-label : id="middle_name" value="{{ old('middle_name',$student->middle_name) }}" title=" Middle Name"
-                                spanClass="text-red-500" type="text" name="middle_name" />
-                            <x-input-label : id="last_name" value="{{ old('last_name',$student->last_name) }}" title="Last Name"
-                                spanClass="text-red-500" type="text" name="last_name" />
+                            <x-input-label : id="full_name" value="{{ old('full_name',$student->full_name) }}" title=" First Name"
+                                spanClass="text-red-500" type="text" name="full_name" />
+                            
                             <x-input-label : id="email" value="{{ old('email',$student->email) }}" title="Email"
                                 spanClass="text-red-500" type="email" name="email" />
                             <x-input-label : id="d_o_b" value="{{ old('d_o_b',$student->d_o_b) }}" title="Date of Birth"
