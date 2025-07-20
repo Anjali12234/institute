@@ -13,7 +13,7 @@
                     <x-addbutton : list="Back" name="Course" route="{{ route('admin.course.index') }}"
                     class="bg-red-500 border-red-500 hover:bg-red-600 hover:border-red-600 focus:bg-red-600 focus:border-red-600 focus:ring-red-100
                   active:ring-red-100 dark:ring-red-400/20" />
-                    {{-- <x-input-error /> --}}
+                    <x-input-error />
                     {{-- <form method="post" action="{{ route('admin.course.store') }}" enctype="multipart/form-data">
                         @csrf
                         <h6 class="mb-4 text-15">Personal Information</h6>
