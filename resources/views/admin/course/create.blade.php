@@ -6,25 +6,25 @@
         <div class="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
 
             <x-breadcumb : list="Course" />
-           
+
             <div class="card">
                 <div class="card-body">
-                    
+
                     <x-addbutton : list="Back" name="Course" route="{{ route('admin.course.index') }}"
                     class="bg-red-500 border-red-500 hover:bg-red-600 hover:border-red-600 focus:bg-red-600 focus:border-red-600 focus:ring-red-100
                   active:ring-red-100 dark:ring-red-400/20" />
-                    <x-input-error />
+                    {{-- <x-input-error /> --}}
                     {{-- <form method="post" action="{{ route('admin.course.store') }}" enctype="multipart/form-data">
                         @csrf
                         <h6 class="mb-4 text-15">Personal Information</h6>
 
                         <div class="grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-3">
-                           
+
                             <x-input-label : id="course_name" value="{{ old('course_name') }}" title="Course Name"
                                 spanClass="text-red-500" type="text" />
                             <x-input-label : id="fee" value="{{ old('fee') }}" title="Course Fee"
                                 spanClass="text-red-500" type="number" />
-                  
+
                             <x-input-label : id="duration" value="{{ old('duration') }}" spanClass="text-red-500"
                                 title="Duration" type="text" />
                             <x-input-label : id="start_date" value="{{ old('start_date') }}"

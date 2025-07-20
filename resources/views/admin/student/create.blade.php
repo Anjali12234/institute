@@ -12,7 +12,7 @@
                 <div class="card-body">
 
                     <h6 class="mb-4 text-15">Student Form</h6>
-                    <x-input-error />
+                    {{-- <x-input-error /> --}}
                     <form method="post" action="{{route('admin.student.store',$studentType)}}" enctype="multipart/form-data">
                         @csrf
                         <h6 class="mb-4 text-15">Personal Information</h6>
@@ -48,7 +48,7 @@
                         <div class="grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-3">
                             <x-input-label : id="tole" value="{{ old('tole') }}" title="Tole"
                                 spanClass="text-red-500" type="text" name="tole" />
-                            
+
                                 <x-select id="student_id" value="{{ old('student_id') }}" title="Reference By"
                                 spanClass="text-white"
                                 selected="{{ old('student_id') }}"
@@ -62,7 +62,7 @@
                                 selected="{{ old('course_id') }}"
                                 :courses="$courses"
                                 name="course_id" />
-                            
+
 
                         </div>
                         <h6 class="mb-4 text-15">Parent And Guardian's Details</h6>
@@ -87,9 +87,9 @@
                         <div class="form-group col-md-12">
                             <x-input-label : id="remarks" value="{{ old('remarks') }}"
                             title="Remark" spanClass="text-red-500" type="text" name="remarks" />
-                  
 
-                          
+
+
                         </div>
 
                         <div class="flex justify-end gap-2 mt-3">
