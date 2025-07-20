@@ -29,7 +29,7 @@
                                         Document Title
                                     </th>
 
-                                    
+
                                     <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right"
                                         data-sort="phone">
                                         Status
@@ -56,9 +56,9 @@
                                             <a href="javascript:void(0);" class="fw-medium link-primary id">#VZ2101</a>
                                         </td>
                                         <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 ">
-                                            {{ $requiredDocument->title }}
+                                            {{ $requiredDocument->document_title }}
                                         </td>
-                                        
+
 
                                         <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 ">
 
