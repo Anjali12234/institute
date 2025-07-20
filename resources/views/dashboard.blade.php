@@ -14,7 +14,7 @@
                         class="relative before:content-['\ea54'] before:font-remix ltr:before:-right-1 rtl:before:-left-1  before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:text-slate-400 dark:text-zink-200">
                         <a href="#!" class="text-slate-400 dark:text-zink-200">Dashboards</a>
                     </li>
-                   
+
                 </ul>
             </div>
             <div class="grid grid-cols-12 2xl:grid-cols-12 gap-x-5">
@@ -178,7 +178,7 @@
                             <div class="col-span-12 lg:col-span-8 2xl:col-span-7">
                                 <h5 class="mb-3 font-normal tracking-wide text-slate-200">Welcome
                                     {{ auth()->user()->name ?? '' }} 🎉</h5>
-                                
+
 
                             </div>
                             {{-- <div
@@ -212,7 +212,7 @@
                         <h5 class="mt-4 mb-2"><span class="counter-value" data-target="{{ $totalStudents }}">{{ $totalStudents }}</span></h5>
                         <p class="text-slate-500 dark:text-zink-200">Total Students</p>
                     </div>
-                    
+
                 </div><!--end col-->
                 <div class="col-span-12 card md:col-span-6 lg:col-span-3 2xl:col-span-2">
                     <div class="text-center card-body">
@@ -240,7 +240,7 @@
                             class="flex items-center justify-center mx-auto text-red-500 bg-red-100 rounded-full size-14 dark:bg-red-500/20">
                             <i data-lucide="users"></i>
                         </div>
-                        <h5 class="mt-4 mb-2"><span class="counter-value" data-target="{{ $totalEnquiryStudents }}">{{ $totalEnquiryStudents }} <span class="text-xs text-slate-500 dark:text-zink-200">({{ $totalEnquiryStudents / $totalStudents * 100 }}%)</span></span></h5>
+                        <h5 class="mt-4 mb-2"><span class="counter-value" data-target="{{ $totalEnquiryStudents }}">{{ $totalEnquiryStudents }} <span class="text-xs text-slate-500 dark:text-zink-200">({{ $totalEnquiryStudents }})</span></span></h5>
                         <p class="text-slate-500 dark:text-zink-200">Total Enquiry Students</p>
                     </div>
                 </div><!--end col-->
