@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\RequiredDocumentController;
 use App\Http\Controllers\Admin\StudentController;
@@ -8,9 +9,9 @@ use App\Http\Controllers\Admin\SystemSettingController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+
+Route::get('dashboard',[DashboardController::class, 'dashboard'])->name('dashboard');
 Route::resource('systemSetting', SystemSettingController::class);
 Route::resource('requiredDocument', RequiredDocumentController::class);
 Route::put('requiredDocument/{requiredDocument}/updateStatus', [RequiredDocumentController::class, 'updateStatus'])->name('requiredDocument.updateStatus');
