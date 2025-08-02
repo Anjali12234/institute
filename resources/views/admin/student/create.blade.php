@@ -21,12 +21,9 @@
 
                             <x-input-label : id="image" value="{{ old('image') }}" title="Image"
                                 spanClass="text-red-500" type="file" name="image" />
-                            <x-input-label : id="full_name" value="{{ old('full_name') }}" title=" First Name"
+                            <x-input-label : id="full_name" value="{{ old('full_name') }}" title=" Full Name"
                                 spanClass="text-red-500" type="text" name="full_name" />
-                            <x-input-label : id="middle_name" value="{{ old('middle_name') }}" title=" Middle Name"
-                                spanClass="text-red-500" type="text" name="middle_name" />
-                            <x-input-label : id="last_name" value="{{ old('last_name') }}" title="Last Name"
-                                spanClass="text-red-500" type="text" name="last_name" />
+                       
                             <x-input-label : id="email" value="{{ old('email') }}" title="Email"
                                 spanClass="text-red-500" type="email" name="email" />
                             <x-input-label : id="d_o_b" value="{{ old('d_o_b') }}" title="Date of Birth"
