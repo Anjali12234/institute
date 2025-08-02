@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function () {
         valid = validateField('passwordConfirmInput', 'cpasswordError', 'Confirm Password is required') && valid;
 
         // Second tab
-        valid = validateField('FirstNameInput', 'FirstNameInputError', 'First Name is required') && valid;
-        valid = validateField('lastNameInput', 'lastNameInputError', 'Last Name is required') && valid;
+        valid = validateField('FullNameInput', 'FullNameInputError', 'Full Name is required') && valid;
+
         valid = validateField('positionInput', 'positionInputError', 'position is required') && valid;
         valid = validateField('phoneNumberPersonalInput', 'phoneNumberPersonalInputError', 'Phone Number is required') && valid;
         valid = validateField('emailPersonalInput', 'emailPersonalInputError', 'Email is required') && valid;
@@ -77,9 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
         valid = validateField('birthDateInput', 'birthDateInputError', 'date is required') && valid;
 
         // Third tab
-        valid = validateField('FirstNameAddressInput', 'FirstNameAddressInputError', 'First Name is required') && valid;
-        valid = validateField('middleNameAddressInput', 'middleNameAddressInputError', 'Middle Name is required') && valid;
-        valid = validateField('lastNameAddressInput', 'lastNameAddressInputError', 'Last Name is required') && valid;
+        valid = validateField('FullNameAddressInput', 'FullNameAddressInputError', 'Full Name is required') && valid;
         valid = validateField('phoneNumberAddressInput', 'phoneNumberAddressInputError', 'Phone Number is required') && valid;
         valid = validateField('emailAddress2Input', 'emailAddress2InputError', 'Email is required') && valid;
         valid = validateField('addressLineInput', 'addressLineInputError', 'Address Line 1 is required') && valid;

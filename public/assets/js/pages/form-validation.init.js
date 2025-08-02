@@ -9,19 +9,19 @@ File: form-validation init js
 document.getElementById('signUp').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    const firstName = document.getElementById('firstNameInput').value.trim();
+    const fullName = document.getElementById('fullNameInput').value.trim();
     const lastName = document.getElementById('lastNameInput').value.trim();
     const email = document.getElementById('emailInput').value.trim();
     const phoneNumber = document.getElementById('phoneNumberInput').value.trim();
     const termsCheckbox = document.getElementById('termsCondition');
 
-    const firstNameError = document.getElementById('firstNameError');
+    const fullNameError = document.getElementById('fullNameError');
     const lastNameError = document.getElementById('lastNameError');
     const emailError = document.getElementById('emailError');
     const phoneNumberError = document.getElementById('phoneNumberError');
     const termsError = document.getElementById('termsError');
 
-    firstNameError.textContent = '';
+    fullNameError.textContent = '';
     lastNameError.textContent = '';
     emailError.textContent = '';
     phoneNumberError.textContent = '';
@@ -29,15 +29,12 @@ document.getElementById('signUp').addEventListener('submit', function (event) {
 
     let isValid = true;
 
-    if (firstName === '') {
-        firstNameError.textContent = 'First Name is required.';
+    if (fullName === '') {
+        fullNameError.textContent = 'Full Name is required.';
         isValid = false;
     }
 
-    if (lastName === '') {
-        lastNameError.textContent = 'Last Name is required.';
-        isValid = false;
-    }
+    
 
     if (email === '') {
         emailError.textContent = 'Email is required.';
